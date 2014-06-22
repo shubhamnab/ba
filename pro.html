@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Buzz4Health</title>
+<script src="1.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script src="js/jqm.autoComplete-1.5.2-min.js"></script>
+	<script src="js/code.js"></script>
+	<script src="2.js"></script>
+</head>
+<body style="background-color:#ffffff">
+<img src="images/buzz-logo.png" width="60%">
+<hr style="height:4px; background-color:#0C9; border-style:none; width:100%;">
+<div style="width:96%;">
+<div style="float:left; margin-left:10px;margin-top:1.5%">
+<ul style="list-style-type:none; padding:0; margin:0; position:absolute; z-index:1000000">
+<li id="mainmenu"><img src="images/nav_icon.png">
+<ul id="menu" style="list-style-type:none; padding:0; display:none; border-style:groove; border-radius:5px; height:auto;; background-color:#fff;">
+<li style="font-size:18px; "><img src="images/a.png" width="20%" height="20%" style=" vertical-align:middle;"><a href="#" style="text-decoration:none; vertical-align:middle;">Home</a></li>
+<li style="font-size:18px; "><hr><img src="images/b.jpg" width="20%" height="20%" style=" vertical-align:middle;"><a href="#" style="text-decoration:none; vertical-align:middle;">My Profile</a></li>
+<li style="font-size:18px; "><hr><img src="images/c.png" width="20%" height="20%" style=" vertical-align:middle;"><a href="index1.html" style="text-decoration:none; vertical-align:middle;">Test Paper</a></li>
+<li style="font-size:18px;"><hr><img src="images/d.png" width="20%" height="20%" style=" vertical-align:middle;"><a href="#" style="text-decoration:none; vertical-align:middle;">My Stats</a></li>
+<li style="font-size:18px;"><hr><img src="images/e.jpg" width="20%" height="20%" style=" vertical-align:middle;"><a href="#" style="text-decoration:none; vertical-align:middle;">My Connections</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<script type="text/javascript">
+   $(document).ready(function(){
+  $("#mainmenu").click(function(){
+    $("#menu").toggle();
+  });
+});
+</script>
+
+	<table style="width:100%">
+  <tr>
+    <th style="background-color:;width:50%"><div id="photo" style="margin-left:5%;margin-top:5%"></div></th>	
+  <th id="name" style="margin-top:-10%"></th>
+  </tr>
+  <tr>
+    <td><pre>         Followers<div id="followers"></div></pre></td>
+    <td><pre>      Followings<div id="followings"></div></pre></td>
+  </tr>
+</table>
+
+
+<div id="header">
+<h>Professional Statement:</h>
+<p id="statement"></p>
+<hr>
+<h>Doctor Education</h>
+<p id="doc_education"></p>
+<hr>
+<h>Hospital Affiliations</h>
+<p id="hospital_affiliation"></p>
+<hr>
+<h>Awards & Publications</h>
+<p id="awards"></p>
+<hr>
+<h>Areas of Interest</h>
+<p id="tags"></p>
+<hr>
+<h>Specializations</h>
+<p id="specialization"></p>
+<hr>
+
+
+</div>
+	  <div id="mainPage1">
+    <div data-role="page" id="mainPage" style="margin-top:22%">
+		
+			<p >
+				<input type="" id="searchBox" placeholder="Search" style="width:80%;margin-left:10%">
+				<ul id="suggestions" data-role="listview" data-inset="true" style="background-color:aquamarine"></ul>
+			</p>
+
+		
+	</div>
+	</div>
+
+    
+             
+	<div>
+    <footer style="margin-top:50%">
+        <a href="#" target="_blank" style="margin-left:13%">About Us</a><a href="#" target="_blank" style="margin-left:13%">Setting</a><a href="#" target="_blank" style="margin-left:13%">Rate This App</a>
+    
+    	<p style="margin-left:25%">Copyright @ 2013 Whitebutter pvt Ltd</p>
+    </footer>
+  </div>
+  
+    <script>
+var listItems= [];
+var listItems1= [];
+    var l;
+		$("#mainPage1").bind("pageshow", function(e) {
+                     
+                    
+                    
+            var speclizationAPI = "http://meerkat.buzz4healthtest.c66.me/users.json";
+  $.getJSON( speclizationAPI, {
+    format: "json"
+  })
+    .done(function( data ) {
+      $.each( data, function( i, item ) {
+           listItems[i] = {label: item.name, value: item.login}
+         //  console.log(listItems);
+          
+        if ( i === data.length-1) {
+          return false;
+        }
+      });
+       
+        l=data.length;
+     //   console.log(l);
+        
+      
+    });
+           
+			$("#searchBox").autocomplete({
+				target: $('#suggestions'),
+				source: listItems,
+				source1: listItems1,
+				link: 'profile_others.html?',
+				minLength: 1,
+				matchFromStart: false,
+               // console.log(link);
+            
+			});
+            });
+        
+		
+	</script>
+
+</body>
+</html>

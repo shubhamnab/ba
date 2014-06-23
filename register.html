@@ -19,12 +19,9 @@
   <div data-role="main" class="ui-content">
     <form id="contactform">
         <fieldset data-role="fieldcontain"> 
-        <input type="text" name="fullname" id="fullname" placeholder="Full Name" class="required" minlength="5" > 
-</fieldset>	
-        <fieldset>
+        <input type="text" name="fullname" id="fullname" placeholder="Full Name" class="required"> 
         <input type="email" name="email" id="email" placeholder="Email" class="required">
-		</fieldset>
-      <fieldset>
+		
           <select name="profession" id="profession">
             <option>I am a</option>
             <option value="doctor">Doctor</option>
@@ -33,23 +30,22 @@
             <option value="acamedician">acamedician</option>
             <option value="other">Other</option>
           </select>
-          </fieldset>
-        <fieldset>
+         
         <select name="day" id="day" multiple="multiple" data-native-menu="false">
           <option>Area of Interest</option>
           <option value="Cardio-Thoracic Surgery">Click Here To Show List</option>
           
         </select>
-      </fieldset>
-        <fieldset>
+     
         <select name="speci" id="speci" multiple="multiple" data-native-menu="false">
           <option>Specialization</option>
            <option value="Cardio-Thoracic Surgery">Click Here To Show List</option>
           
         </select>
-      </fieldset>
+     
         <label for="accept">I accept the <a href="#agreement" style="text-decoration:none" data-rel="popup">User Agreement</a></label>
         <input type="checkbox" value="accept" name="accept" id="accept" class="required">
+		 </fieldset>
       <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit">
     </form>
   </div>

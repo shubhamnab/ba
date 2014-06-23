@@ -20,7 +20,8 @@ jQuery(function(cash) {
      crossDomain: true,
      async: false,
      success : function(data) {
-  alert(1);
+  alert(Registered Successfully...Login now);
+  window.location.href = "index.html";
      },
      error: function(jqXHR, textStatus, errorThrown) { alert(textStatus+" "+errorThrown); 
      window.location.href = "register.html";

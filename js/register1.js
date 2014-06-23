@@ -22,7 +22,9 @@ jQuery(function(cash) {
      success : function(data) {
   alert(1);
      },
-     error: function(jqXHR, textStatus, errorThrown) { alert(textStatus+" "+errorThrown); }
+     error: function(jqXHR, textStatus, errorThrown) { alert(textStatus+" "+errorThrown); 
+     window.location.href = "register.html";
+     }
   });
   });
 });

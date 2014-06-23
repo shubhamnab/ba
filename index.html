@@ -25,9 +25,14 @@
 		<p><a href="forgot.html" id="link1"  >Forgot Password?</a><p>
 		<input type="submit" data-inline="true" value="Sign In" id ="login_btn"><br>
 		<h>Don't have an account ? Register Now</h><br>
-		<a href="register.html" class="ui-btn">Register</a>
+		<a href="#" onclick="register()" class="ui-btn">Register</a>
         </fieldset>	
-		
+		<script>
+		function register()
+		{
+			window.location.href = "register.html";
+		}
+		</script>
 		
        
 	</form>
